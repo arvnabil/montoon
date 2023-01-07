@@ -24,6 +24,12 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+Route::get('admin', function () {
+    return 'Hi Admin!';
+})->middleware('role:admin');
+Route::get('user', function () {
+    return 'Hi User!';
+})->middleware('role:user');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
